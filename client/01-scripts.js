@@ -1,13 +1,13 @@
 function fetchHelloDataFromAPI() {
-  fetch('http://localhost:3000/test/helloclient', { //1
+  fetch('http://localhost:3000/test/helloclient', {
       method: 'GET', 
-      headers: new Headers({ //2
+      headers: new Headers({ 
         'Content-Type': 'application/json'
       })
   })
       .then(function (response) {
           console.log("Fetch response:", response)
-          return response.text(); //3
+          return response.text(); 
       })
       .then(function (text) {
           console.log(text);
@@ -20,20 +20,20 @@ function postToOne(){
     var url = 'http://localhost:3000/test/one';
 
     fetch(url, {
-      method: 'POST',             //1
+      method: 'POST',            
       headers: new Headers({
         'Content-Type': 'application/json'
       })
     }).then(
-        function(response){   //2
+        function(response){ 
             return response.text()
         })
     .catch(
-        function(error){   //3
+        function(error){  
             console.error('Error:', error)
         })
     .then(
-        function(response){   //4
+        function(response){  
             console.log('Success:', response);
         })
 }
@@ -44,14 +44,14 @@ function postToOne(){
 function postToOneArrow(){
     var url = 'http://localhost:3000/test/one';
 
-    fetch(url, {  //1
+    fetch(url, {  
       method: 'POST', 
       headers: new Headers({
         'Content-Type': 'application/json'
       })
-    }).then(res => res.text()) //2
-    .catch(error => console.error('Error:', error)) //3
-    .then(response => console.log('Success:', response)); //4
+    }).then(res => res.text()) 
+    .catch(error => console.error('Error:', error)) 
+    .then(response => console.log('Success:', response)); 
 }
 function postData() {
     //1
@@ -66,7 +66,7 @@ function postData() {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(content)  //3
+        body: JSON.stringify(content)  
     })
     .then(response => response.json())
     .then(function (text) {
@@ -100,13 +100,13 @@ function fetchFromOneDisplayData(){
         })
     .then(
         function(response){
-            let myList = document.querySelector('ul'); //3
+            let myList = document.querySelector('ul'); 
 
-            for (r of response){  //4
-                console.log('Response:', r.testdata); //5
-                var listItem = document.createElement('li');  //6 
-                listItem.innerHTML = r.testdata; //7
-                myList.appendChild(listItem); //8
+            for (r of response){  
+                console.log('Response:', r.testdata); 
+                var listItem = document.createElement('li');  
+                listItem.innerHTML = r.testdata; 
+                myList.appendChild(listItem); 
             }
         })
 }
